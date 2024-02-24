@@ -1,10 +1,10 @@
-# Themedgehog
+# 🦔 Themedgehog
 
-## Description
+## 📖 Description
 
 My custom vim dark theme with custom syntax highlighting.
 
-## Installing
+## ⬇️ Installing
 
 Use this command in your terminal:
 
@@ -25,7 +25,7 @@ to your .vimrc. You can do it manually or using this command in your terminal:
 echo "set themedgehog" >> $HOME/.vimrc
 ```
 
-## Preview
+## 🖼️ Preview
 
 ![C file preview](https://github.com/SrVariable/themedgehog/blob/master/preview/1.png)
 
@@ -33,12 +33,12 @@ echo "set themedgehog" >> $HOME/.vimrc
 >
 > It uses the default terminal's background.
 
-## Supported files
+## ✔️ Supported files
 
 - C
 - Vim (Partially)
 
-## References
+## 🔗 References
 
 - Vim Patterns: https://learnvimscriptthehardway.stevelosh.com/
 - Styling Code : https://github.com/crusoexia/vim-monokai
