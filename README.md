@@ -27,7 +27,7 @@ echo "set themedgehog" >> $HOME/.vimrc
 
 ## 🖼️ Preview
 
-![C file preview](https://github.com/SrVariable/themedgehog/blob/master/preview/1.png)
+![C file preview](https://raw.githubusercontent.com/SrVariable/themedgehog/master/preview/1.png)
 
 > [!NOTE]
 >
