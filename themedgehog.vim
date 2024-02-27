@@ -39,9 +39,9 @@ let s:blue2		=	{	"gui": "#919fcd"	}
 let s:cyan		=	{	"gui": "#53b2ed"	}
 let s:gray		=	{	"gui": "#4d5458"	}
 let s:gray2		=	{	"gui": "#617c93"	}
-let s:gray3		=	{	"gui": "#707050"	}
 let s:green		=	{	"gui": "#36b93b"	}
 let s:green2	=	{	"gui": "#3dee3f"	}
+let s:green3	=	{	"gui": "#707050"	}
 let s:orange	=	{	"gui": "#ef7d0e"	}
 let s:pink		=	{	"gui": "#ffbbff"	}
 let s:pink2		=	{	"gui": "#da27fc"	}
@@ -67,9 +67,10 @@ call s:h("String",			{	"fg": s:pink					})
 
 " === VIM START === "
 call s:h("Normal",			{	"fg": s:pink					})
-call s:h("Visual",			{					"bg": s:gray3	})
+call s:h("Visual",			{					"bg": s:green3	})
 call s:h("Search",			{	"fg": s:black,	"bg": s:yellow	})
 call s:h("LineNr",			{	"fg": s:gray					})
+call s:h("NonText",			{	"fg": s:gray					})
 call s:h("CursorLineNr",	{	"fg": s:yellow,	"bg": s:gray	})
 call s:h("SpecialKey",		{	"fg": s:gray					})
 call s:h("ColorColumn",		{					"bg": s:black2	})
@@ -84,7 +85,7 @@ augroup CFiles
 	"autocmd Filetype c syntax match cFunction /\k\+\((\)\@=/ " -> ) <- This parenthesis fix the highlighting below
 
 	" Match every look like function excluding definition/declaration
-	autocmd Filetype c syntax match cFunction /\(\(\<t_.*\|\<void\>.*\|\<int\>.*\|\<char\>.*\|\<bool\>.*\|\<double\>.*\|\<float\>.*\|\<long\>.*\|\<short\>.*\|\<size_t\>.*\)\@<!\k\+\)\((\)\@=/ " -> ) <- This parenthesis fix the highlighting below
+	autocmd Filetype c syntax match cFunction /\(\(\<t_*\s\|\<void*\s\|\<int*\s\|\<char*\s\|\<bool*\s\|\<double*\s\|\<float*\s\|\<long*\s\|\<short*\s\|\<size_t*\s\)\@<!\k\+\)\((\)\@=/ " -> ) <- This parenthesis fix the highlighting below
 
 	" Match hex numbers
 	autocmd Filetype c syntax match cHexZero /0x/
@@ -122,7 +123,7 @@ call s:h("cStorageClass",	{	"fg": s:yellow					})
 call s:h("cConstant",		{	"fg": s:orange					})
 call s:h("cStructure",		{	"fg": s:yellow					})
 call s:h("cTypedef",		{	"fg": s:yellow					})
-call s:h("MatchParen",		{	"fg": s:blue2,	"bg": s:gray3	})
+call s:h("MatchParen",		{	"fg": s:blue2,	"bg": s:green3	})
 call s:h("cBinaryZero",		{	"fg": s:red						})
 call s:h("cOctalZero",		{	"fg": s:red						})
 call s:h("cHexZero",		{	"fg": s:red						})
