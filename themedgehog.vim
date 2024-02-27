@@ -39,25 +39,21 @@ let s:blue2		=	{	"gui": "#919fcd"	}
 let s:cyan		=	{	"gui": "#53b2ed"	}
 let s:gray		=	{	"gui": "#4d5458"	}
 let s:gray2		=	{	"gui": "#617c93"	}
+let s:gray3		=	{	"gui": "#707050"	}
 let s:green		=	{	"gui": "#36b93b"	}
 let s:green2	=	{	"gui": "#3dee3f"	}
-let s:green3	=	{	"gui": "#707050"	}
 let s:orange	=	{	"gui": "#ef7d0e"	}
 let s:pink		=	{	"gui": "#ffbbff"	}
 let s:pink2		=	{	"gui": "#da27fc"	}
 let s:pink3		=	{	"gui": "#f97df9"	}
-let s:purple	=	{	"gui": "#9940ee"	}
-let s:purple2	=	{	"gui": "#b450dc"	}
+let s:purple	=	{	"gui": "#b450dc"	}
 let s:red		=	{	"gui": "#d03636"	}
-let s:red2		=	{	"gui": "#eb2f2f"	}
 let s:yellow	=	{	"gui": "#eecc44"	}
-let s:white		=	{	"gui": "#b7c8d9"	}
-let s:white2	=	{	"gui": "#acacac"	}
-let s:white3	=	{	"gui": "#ffffff"	}
+let s:white		=	{	"gui": "#ffffff"	}
 
 " === GENERAL START === "
 call s:h("TODO",			{	"fg": s:pink,	"bg": s:gray	})
-call s:h("Number",			{	"fg": s:white3					})
+call s:h("Number",			{	"fg": s:white					})
 call s:h("Comment",			{	"fg": s:gray2					})
 call s:h("Statement",		{	"fg": s:pink2					})
 call s:h("Function",		{	"fg": s:green					})
@@ -67,7 +63,7 @@ call s:h("String",			{	"fg": s:pink					})
 
 " === VIM START === "
 call s:h("Normal",			{	"fg": s:pink					})
-call s:h("Visual",			{					"bg": s:green3	})
+call s:h("Visual",			{					"bg": s:gray3	})
 call s:h("Search",			{	"fg": s:black,	"bg": s:yellow	})
 call s:h("LineNr",			{	"fg": s:gray					})
 call s:h("NonText",			{	"fg": s:gray					})
@@ -123,20 +119,20 @@ call s:h("cStorageClass",	{	"fg": s:yellow					})
 call s:h("cConstant",		{	"fg": s:orange					})
 call s:h("cStructure",		{	"fg": s:yellow					})
 call s:h("cTypedef",		{	"fg": s:yellow					})
-call s:h("MatchParen",		{	"fg": s:blue2,	"bg": s:green3	})
+call s:h("MatchParen",		{	"fg": s:blue2,	"bg": s:gray3	})
 call s:h("cBinaryZero",		{	"fg": s:red						})
 call s:h("cOctalZero",		{	"fg": s:red						})
 call s:h("cHexZero",		{	"fg": s:red						})
-call s:h("cBinary",			{	"fg": s:white3					})
-call s:h("cOctal",			{	"fg": s:white3					})
-call s:h("cHex",			{	"fg": s:white3					})
+call s:h("cBinary",			{	"fg": s:white					})
+call s:h("cOctal",			{	"fg": s:white					})
+call s:h("cHex",			{	"fg": s:white					})
 call s:h("cFunction",		{	"fg": s:cyan					})
-call s:h("cStatement",		{	"fg": s:purple2					})
+call s:h("cStatement",		{	"fg": s:purple					})
 call s:h("cCustomType",		{	"fg": s:yellow					})
 call s:h("cCustomPointer",	{	"fg": s:yellow					})
 call s:h("cIncrDecr",		{	"fg": s:orange					})
 call s:h("cIncluded",		{	"fg": s:orange					})
-call s:h("cParenthesis",	{	"fg": s:white3					})
+call s:h("cParenthesis",	{	"fg": s:white					})
 
 " Add bold highlighting
 highlight cCustomOperator cterm=bold
