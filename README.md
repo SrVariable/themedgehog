@@ -41,4 +41,5 @@ echo "set themedgehog" >> $HOME/.vimrc
 ## 🔗 References
 
 - Vim Patterns: https://learnvimscriptthehardway.stevelosh.com/
+- Vim Patterns: https://vimdoc.sourceforge.net/htmldoc/pattern.html
 - Styling Code : https://github.com/crusoexia/vim-monokai
