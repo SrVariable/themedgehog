@@ -85,7 +85,7 @@ augroup CFiles
 	"autocmd Filetype c syntax match cFunction /\k\+\((\)\@=/ " -> ) <- This parenthesis fix the highlighting below
 
 	" Match every look like function excluding definition/declaration
-	autocmd Filetype c syntax match cFunction /\(\(\<t_*\s\|\<void*\s\|\<int*\s\|\<char*\s\|\<bool*\s\|\<double*\s\|\<float*\s\|\<long*\s\|\<short*\s\|\<size_t*\s\)\@<!\k\+\)\((\)\@=/ " -> ) <- This parenthesis fix the highlighting below
+	autocmd Filetype c syntax match cFunction /\(\(t_*\s\|char\|int\|void\|bool\|double\|float\|long\|short\|size_t\)\s*\%[\*]*\k*(*\)\@<!\k*\ze(/ "")) " The last parenthesis fixes the highlighting below
 
 	" Match hex numbers
 	autocmd Filetype c syntax match cHexZero /0x/
