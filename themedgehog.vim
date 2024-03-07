@@ -46,23 +46,25 @@ let s:orange	=	{	"gui": "#ef7d0e"	}
 let s:pink		=	{	"gui": "#ffbbff"	}
 let s:pink2		=	{	"gui": "#da27fc"	}
 let s:pink3		=	{	"gui": "#f97df9"	}
+let s:pink4		=	{	"gui": "#ff99f3"	}
 let s:purple	=	{	"gui": "#b450dc"	}
 let s:red		=	{	"gui": "#d03636"	}
 let s:yellow	=	{	"gui": "#eecc44"	}
-let s:white		=	{	"gui": "#ffffff"	}
+let s:white		=	{	"gui": "#bffbff"	}
+let s:white2	=	{	"gui": "#ffffff"	}
 
 " === GENERAL START === "
 call s:h("TODO",			{	"fg": s:pink,	"bg": s:gray	})
 call s:h("Number",			{	"fg": s:white					})
 call s:h("Comment",			{	"fg": s:gray2					})
-call s:h("Statement",		{	"fg": s:pink2					})
+call s:h("Statement",		{	"fg": s:cyan					})
 call s:h("Function",		{	"fg": s:green					})
-call s:h("Character",		{	"fg": s:pink					})
-call s:h("String",			{	"fg": s:pink					})
-" === GENERAL END === "
-
-" === VIM START === "
-call s:h("Normal",			{	"fg": s:pink					})
+call s:h("Character",		{	"fg": s:white2					})
+call s:h("String",			{	"fg": s:white2					})
+" === GENERAL END === "                      
+                                             
+" === VIM START === "                        
+call s:h("Normal",			{	"fg": s:white2					})
 call s:h("Visual",			{					"bg": s:gray3	})
 call s:h("Search",			{	"fg": s:black,	"bg": s:yellow	})
 call s:h("LineNr",			{	"fg": s:gray					})
@@ -78,32 +80,32 @@ augroup CFiles
 	autocmd!
 
 	"" Match every look like function
-	"autocmd Filetype c syntax match cFunction /\k\+\((\)\@=/ " -> ) <- This parenthesis fix the highlighting below
+	autocmd Filetype c,cpp syntax match cFunction /\k\+\((\)\@=/ " -> ) <- This parenthesis fix the highlighting below
 
 	" Match every look like function excluding definition/declaration
-	autocmd Filetype c syntax match cFunction /\(\(t_*\s\|char\|int\|void\|bool\|double\|float\|long\|short\|size_t\)\s*\%[\*]*\k*(*\)\@<!\k*\ze(/ "")) " The last parenthesis fixes the highlighting below
+	autocmd Filetype c,cpp syntax match cFunction /\(\(t__*\k*\s\|char\|int\|void\|bool\|double\|float\|long\|short\|size_t\)\s*\%[\*]*\k*(*\)\@<!\k*\ze(/ "")) " The last parenthesis fixes the highlighting below
 
 	" Match hex numbers
-	autocmd Filetype c syntax match cHexZero /0x/
-	autocmd Filetype c syntax match cHex /\(0x\)\@<=\w*/
-	autocmd Filetype c syntax match cHexError /0x\x*\([G-Z]\|[g-z]\)\(\d\|\w\)*/ " Invalid hex number
+	autocmd Filetype c,cpp syntax match cHexZero /0x/
+	autocmd Filetype c,cpp syntax match cHex /\(0x\)\@<=\w*/
+	autocmd Filetype c,cpp syntax match cHexError /0x\x*\([G-Z]\|[g-z]\)\(\d\|\w\)*/ " Invalid hex number
 
 	" Match binary numbers
-	autocmd Filetype c syntax match cBinaryZero /0b/
-	autocmd Filetype c syntax match cBinary /\(0b\)\@<=\w*/
-	autocmd Filetype c syntax match cBinaryError /0b[0-1]*\([2-9]\|[a-z]\|[A-Z]\)\w*/ " Invalid binary number
+	autocmd Filetype c,cpp syntax match cBinaryZero /0b/
+	autocmd Filetype c,cpp syntax match cBinary /\(0b\)\@<=\w*/
+	autocmd Filetype c,cpp syntax match cBinaryError /0b[0-1]*\([2-9]\|[a-z]\|[A-Z]\)\w*/ " Invalid binary number
 
 	" Match ++ and -- operators
-	autocmd Filetype c syntax match cIncrDecr /++\|--/
+	autocmd Filetype c,cpp syntax match cIncrDecr /++\|--/
 
 	" Match typedef names
-	autocmd Filetype c syntax match cCustomType /\zs\<t_\w*[^;()]/
+	autocmd Filetype c,cpp syntax match cCustomType /\zs\<t_\w*[^;()]/
 
 	" Match preprocessor's name
-	autocmd Filetype c syntax match cPostDefine /\(ifndef.*\n.*\)\@<!\(define\s\)\@<=\(\w*\)/
+	autocmd Filetype c,cpp syntax match cPostDefine /\(ifndef.*\n.*\)\@<!\(define\s\)\@<=\(\w*\)/
 
 	" Match (), [] and {}
-	autocmd Filetype c syntax match cParenthesis /(\|)\|[\|]\|{\|}/
+	autocmd Filetype c,cpp syntax match cParenthesis /(\|)\|[\|]\|{\|}/
 augroup END
 
 " Highlighting
@@ -126,19 +128,21 @@ call s:h("cHexZero",		{	"fg": s:red						})
 call s:h("cBinary",			{	"fg": s:white					})
 call s:h("cOctal",			{	"fg": s:white					})
 call s:h("cHex",			{	"fg": s:white					})
-call s:h("cFunction",		{	"fg": s:cyan					})
-call s:h("cStatement",		{	"fg": s:purple					})
+call s:h("cFunction",		{	"fg": s:pink4					})
+call s:h("cStatement",		{	"fg": s:cyan					})
 call s:h("cCustomType",		{	"fg": s:yellow					})
 call s:h("cCustomPointer",	{	"fg": s:yellow					})
 call s:h("cIncrDecr",		{	"fg": s:orange					})
 call s:h("cIncluded",		{	"fg": s:orange					})
-call s:h("cParenthesis",	{	"fg": s:white					})
+call s:h("cParenthesis",	{	"fg": s:white2					})
 
 " Add bold highlighting
 highlight cCustomOperator cterm=bold
 highlight cFormat cterm=bold
 highlight cConstant cterm=bold
 highlight cCustomType cterm=bold
+highlight Comment cterm=italic
+highlight cType cterm=bold
 
 " Link to the predefined highlight
 highlight link cHexError cError
