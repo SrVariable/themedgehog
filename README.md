@@ -9,7 +9,7 @@ My custom vim dark theme with custom syntax highlighting.
 Use this command in your terminal:
 
 ```Shell
-curl -fsSL https://github.com/SrVariable/themedgehog/blob/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/SrVariable/themedgehog/master/install.sh | bash
 ```
 
 After installing use the theme with following command in vim:
