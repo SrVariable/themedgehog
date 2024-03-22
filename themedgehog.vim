@@ -99,7 +99,7 @@ augroup CFiles
 	autocmd Filetype c,cpp syntax match cIncrDecr /++\|--/
 
 	" Match typedef names
-	autocmd Filetype c,cpp syntax match cCustomType /\zs\<t_\w*[^;()]/
+	autocmd Filetype c,cpp syntax match cCustomType /\zs\<t_\w*[^;()]\|\k*_t\>/
 
 	" Match preprocessor's name
 	autocmd Filetype c,cpp syntax match cPostDefine /\(ifndef.*\n.*\)\@<!\(define\s\)\@<=\(\w*\)/
