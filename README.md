@@ -15,14 +15,14 @@ curl -fsSL https://raw.githubusercontent.com/SrVariable/themedgehog/master/insta
 After installing use the theme with following command in vim:
 
 ```Vim
-:set themedgehog
+:colorscheme themedgehog
 ```
 
 If you plan to use themedgehog as your default theme, consider adding it
 to your .vimrc. You can do it manually or using this command in your terminal:
 
 ```Shell
-echo "set themedgehog" >> $HOME/.vimrc
+echo "colorscheme themedgehog" >> $HOME/.vimrc
 ```
 
 ## 🖼️ Preview
