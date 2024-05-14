@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Variables
-GH_LINK="https://raw.githubusercontent.com/SrVariable/themedgehog/master/install.sh"
+GH_LINK="https://github.com/SrVariable/themedgehog.git"
 THEME_DIR="$HOME/.vim/colors"
 NAME="themedgehog"
 
 # Clone the git repository if it's not already cloned
 if [[ "$(pwd)" != *"themedgehog" ]]; then
-	git clone $GH_LINK_FILE $NAME
+	git clone $GH_LINK $NAME
 	cd $NAME
 fi
 
