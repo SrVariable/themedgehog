@@ -43,8 +43,7 @@ echo "colorscheme themedgehog" >> $HOME/.vimrc
 
 > [!NOTE]
 >
-> It uses the default terminal's background. So if you have 
-
+> It uses the default terminal's background.
 ## ✔️ Supported files
 
 - C
