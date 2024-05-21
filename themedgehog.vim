@@ -53,10 +53,13 @@ let s:purple	=	{	"gui": "#b450dc",	"cterm": 134	}
 let s:purple2	=	{	"gui": "#d88cff",	"cterm": 135	}
 let s:red		=	{	"gui": "#d03636",	"cterm": 9		}
 let s:yellow	=	{	"gui": "#eecc44",	"cterm": 185	}
-let s:white		=	{	"gui": "#ffffff",	"cterm": 15		}
+let s:white		=	{	"gui": "#ffffff",	"cterm": 231	}
 let s:white2	=	{	"gui": "#e8e8e8",	"cterm": 254	}
 
-" === GENERAL START === "
+" @--------------------------------------------------------------------------@ "
+" |                              GENERAL START                               | "
+" @--------------------------------------------------------------------------@ "
+
 call s:h("TODO",			{	"fg": s:pink,	"bg": s:gray	})
 call s:h("Number",			{	"fg": s:white					})
 call s:h("Comment",			{	"fg": s:gray2					})
@@ -65,9 +68,11 @@ call s:h("Function",		{	"fg": s:green					})
 call s:h("Character",		{	"fg": s:white					})
 call s:h("String",			{	"fg": s:white					})
 call s:h("SpecialChar",		{	"fg": s:orange					})
-" === GENERAL END === "
 
-" === VIM START === "
+" @--------------------------------------------------------------------------@ "
+" |                                VIM START                                 | "
+" @--------------------------------------------------------------------------@ "
+
 call s:h("Normal",			{	"fg": s:white					})
 call s:h("Visual",			{					"bg": s:gray3	})
 call s:h("Search",			{	"fg": s:black,	"bg": s:yellow	})
@@ -77,9 +82,11 @@ call s:h("NonText",			{	"fg": s:gray					})
 call s:h("CursorLineNr",	{	"fg": s:yellow,	"bg": s:gray	})
 call s:h("SpecialKey",		{	"fg": s:gray					})
 call s:h("ColorColumn",		{					"bg": s:black2	})
-" === VIM END === "
 
-" === C START === "
+" @--------------------------------------------------------------------------@ "
+" |                               C/CPP START                                | "
+" @--------------------------------------------------------------------------@ "
+
 " Create custom match patterns
 augroup CFiles
 	autocmd!
@@ -91,31 +98,29 @@ augroup CFiles
 	"autocmd Filetype c syn match cFunction /\(\(t_*\s\|char\|int\|void\|bool\|double\|float\|long\|short\|size_t\)\s*\%[\*]*\k*(*\)\@<!\k*\ze(/ "")) " The last parenthesis fixes the highlighting below
 
 	" Match hex numbers
-	autocmd Filetype c syn match cHexZero /0x/
-	autocmd Filetype c syn match cHex /\(0x\)\@<=\w*/
-	autocmd Filetype c syn match cHexError /0x\x*\([G-Z]\|[g-z]\)\(\d\|\w\)*/ " Invalid hex number
+	autocmd Filetype c,cpp syn match cHexZero /0x/
+	autocmd Filetype c,cpp syn match cHex /\(0x\)\@<=\w*/
+	autocmd Filetype c,cpp syn match cHexError /0x\x*\([G-Z]\|[g-z]\)\(\d\|\w\)*/ " Invalid hex number
 
 	" Match binary numbers
-	autocmd Filetype c syn match cBinaryZero /0b/
-	autocmd Filetype c syn match cBinary /\(0b\)\@<=\w*/
-	autocmd Filetype c syn match cBinaryError /0b[0-1]*\([2-9]\|[a-z]\|[A-Z]\)\w*/ " Invalid binary number
+	autocmd Filetype c,cpp syn match cBinaryZero /0b/
+	autocmd Filetype c,cpp syn match cBinary /\(0b\)\@<=\w*/
+	autocmd Filetype c,cpp syn match cBinaryError /0b[0-1]*\([2-9]\|[a-z]\|[A-Z]\)\w*/ " Invalid binary number
 
 	" Match ++ and -- operators
-	autocmd Filetype c syn match cIncrDecr /++\|--/
+	autocmd Filetype c,cpp syn match cIncrDecr /++\|--/
 
 	" Match typedef names
-	autocmd Filetype c syn match cCustomType /\zs\<t_\w*[^;()]/
-	autocmd Filetype cpp syn match cppCustomType /\zs\<t_\w*[^;()]/
+	autocmd Filetype c,cpp syn match cCustomType /\zs\<t_\w*[^;()]/
 
 	" Match preprocessor's name
-	autocmd Filetype c syn match cPostDefine /\(ifndef.*\n.*\)\@<!\(define\s\)\@<=\(\w*\)/
+	autocmd Filetype c,cpp syn match cPostDefine /\(ifndef.*\n.*\)\@<!\(define\s\)\@<=\(\w*\)/
 
 	" Match (), [] and {}
-	autocmd Filetype c syn match cParenthesis /(\|)\|[\|]\|{\|}/
+	autocmd Filetype c,cpp syn match cParenthesis /(\|)\|[\|]\|{\|}/
 
-	autocmd Filetype c syn keyword cType pthread_t
-	autocmd Filetype cpp syn keyword cType pthread_t
-augroup END
+	autocmd Filetype c,cpp syn match cType /\w*_t\s/
+augroup END " CFiles
 
 " Highlighting
 call s:h("cDefine",			{	"fg": s:blue2					})
@@ -163,22 +168,23 @@ highlight link cHexError cError
 highlight link cBinaryError cError
 highlight link cCustomType cType
 highlight link cppCustomType cType
+highlight link cppBoolean cType
+highlight link cppType cType
 
-" === C END === "
-
-" === PYTHON START === "
+" @--------------------------------------------------------------------------@ "
+" |                              PYTHON START                                | "
+" @--------------------------------------------------------------------------@ "
 
 augroup PythonFiles
+	autocmd!
 	autocmd Filetype python syn match pythonOctal /0\@<=\w*/
 	autocmd Filetype python syn match pythonHexZero /0x/
 	autocmd Filetype python syn match pythonHex /\(0x\)\@<=\w*/
 	autocmd Filetype python syn match pythonBinaryZero /0b/
 	autocmd Filetype python syn match pythonBinary /\(0b\)\@<=\w*/
-
 	autocmd Filetype python syn region pythonDocstring  start=+^\s*[uU]\?[rR]\?"""+ end=+"""+ keepend excludenl contains=pythonEscape,@Spell,pythonDoctest,pythonDocTest2,pythonSpaceError
 	autocmd Filetype python syn region pythonDocstring  start=+^\s*[uU]\?[rR]\?'''+ end=+'''+ keepend excludenl contains=pythonEscape,@Spell,pythonDoctest,pythonDocTest2,pythonSpaceError
-	hi def link pythonDocstring pythonComment
-augroup END
+augroup END " PythonFiles
 
 call s:h("pythonAsync",			{	"fg": s:purple2					})
 call s:h("pythonStatement",		{	"fg": s:purple					})
@@ -204,4 +210,24 @@ highlight pythonStatement cterm=bold
 highlight pythonConditional cterm=bold
 highlight pythonRepeat cterm=bold
 
-" === PYTHON END === "
+highlight link pythonDocstring pythonComment
+
+" @--------------------------------------------------------------------------@ "
+" |                             MAKEFILE START                               | "
+" @--------------------------------------------------------------------------@ "
+
+augroup MakeFiles
+	autocmd!
+	autocmd Filetype make syn match makeMacroTarget /\$(\w*):$/
+augroup END " MakeFiles
+
+call s:h("makeIdent",			{	"fg": s:blue2					})
+call s:h("makeTarget",			{	"fg": s:yellow					})
+call s:h("makePreCondit",		{	"fg": s:purple					})
+call s:h("makeCommands",		{	"fg": s:white					})
+call s:h("makeStatement",		{	"fg": s:cyan					})
+call s:h("makeExport",		{	"fg": s:red					})
+
+highlight makeTarget cterm=bold
+highlight makeStatement cterm=bold
+highlight link makeMacroTarget makeTarget

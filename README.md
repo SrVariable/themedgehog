@@ -9,7 +9,7 @@ My custom vim dark theme with custom syntax highlighting.
 Use this command in your terminal:
 
 ```Shell
-curl -fsSL https://raw.githubusercontent.com/SrVariable/themedgehog/master/install.sh | bash
+bash <(curl -fsSL https://raw.githubusercontent.com/SrVariable/themedgehog/master/install.sh)
 ```
 
 After installing use the theme with following command in vim:
@@ -36,7 +36,9 @@ echo "colorscheme themedgehog" >> $HOME/.vimrc
 ## ✔️ Supported files
 
 - C
+- Makefile 
 - Vim (Partially)
+- Python (Partially)
 
 ## 🔗 References
 
