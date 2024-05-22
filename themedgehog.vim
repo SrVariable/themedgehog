@@ -120,6 +120,7 @@ augroup CFiles
 	autocmd Filetype c,cpp syn match cParenthesis /(\|)\|[\|]\|{\|}/
 
 	autocmd Filetype c,cpp syn match cType /\w*_t\s/
+	autocmd Filetype c,cpp syn match cType /\C\<\u\l\w*\ze\(\s\|;\)/
 augroup END " CFiles
 
 " Highlighting
@@ -225,8 +226,8 @@ call s:h("makeIdent",			{	"fg": s:blue2					})
 call s:h("makeTarget",			{	"fg": s:yellow					})
 call s:h("makePreCondit",		{	"fg": s:purple					})
 call s:h("makeCommands",		{	"fg": s:white					})
-call s:h("makeStatement",		{	"fg": s:cyan					})
-call s:h("makeExport",		{	"fg": s:red					})
+call s:h("makeStatement",		{	"fg": s:red						})
+call s:h("makeExport",			{	"fg": s:red						})
 
 highlight makeTarget cterm=bold
 highlight makeStatement cterm=bold
